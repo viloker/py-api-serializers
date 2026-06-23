@@ -17,7 +17,7 @@ from cinema.serializers import (
 class MovieViewSet(ModelViewSet):
     queryset = Movie.objects.all()
 
-    def get_serializer_class(self):
+    def get_serializer_class(self) -> type[MovieSerializer]:
 
         if self.action == "create":
             return MovieSerializer
@@ -30,7 +30,7 @@ class MovieViewSet(ModelViewSet):
 class MovieSessionViewSet(ModelViewSet):
     queryset = MovieSession.objects.all()
 
-    def get_serializer_class(self):
+    def get_serializer_class(self) -> type[MovieSessionSerializer]:
         if self.action == "create":
             return MovieSessionSerializer
         if self.action == "retrieve":
